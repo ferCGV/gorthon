@@ -102,7 +102,7 @@ display: flex;
 flex-direction: column;
 margin-top: 60px;
 justify-self: center;
-width: 60%;
+width: 10%;
 height: 110%;
 text-align: center;
 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 

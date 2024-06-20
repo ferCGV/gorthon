@@ -1,71 +1,56 @@
 <template>
-  <div class="contenedor">
-    <Navbar></Navbar>
+  <div>
+    <form @submit.prevent="submitForm">
+      <label for="email">Email:</label>
+      <input type="email" id="email" v-model="formData.email" required>
 
-    <div class="container">
-      <div class="derecha">
-        <form @submit.prevent="submitForm">
-          <div id="inputs">
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" v-model="form.nombre">
-            
-            <label for="apellido">Apellido</label>
-            <input type="text" id="apellido" v-model="form.apellido">
-            
-            <label for="correo">Correo</label>
-            <input type="email" id="correo" v-model="form.correo">
-            
-            <label for="password">Contraseña</label>
-            <input type="password" id="password" v-model="form.password">
-            
-            <button type="submit">Registrarse</button>
-          </div>
-          <p v-if="registrationMessage">{{ registrationMessage }}</p>
-        </form>
-      </div>
-    </div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" v-model="formData.username" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" v-model="formData.password" required>
+
+      <label for="role">Role:</label>
+      <input type="number" id="role" v-model="formData.role" required>
+
+      <button type="submit">Registrarse</button>
+    </form>
+    <p v-if="registrationMessage">{{ registrationMessage }}</p>
   </div>
 </template>
 
-<script setup>
-import { ref } from 'vue';
+<script>
 import axios from 'axios';
-import Navbar from '@/Navbar.vue';
 
-const form = ref({
-  nombre: '',
-  apellido: '',
-  correo: '',
-  password: ''
-});
+export default {
+  data() {
+    return {
+      formData: {
+        email: 'user@example.com',
+        username: 'example_user',
+        password: 'password123',
+        role: 1
+      },
+      registrationMessage: ''
+    };
+  },
+  methods: {
+    async submitForm() {
+      try {
+        const response = await axios.post('https://cdi-web-backend.onrender.com/api/v1/user/create_user', this.formData);
+        console.log('Response:', response.data);
 
-const registrationMessage = ref('');
-
-const submitForm = async () => {
-  try {
-    const response = await axios.post('https://cdi-web-backend.onrender.com/api/v1/user/create_user', {
-      email: form.value.correo,
-      username: `${form.value.nombre}_${form.value.apellido}`, // Genera un username basado en nombre y apellido, ajusta según necesites
-      password: form.value.password,
-      role: 1 // Ajusta el rol según lo requerido por la API
-    });
-
-    console.log('Response:', response.data);
-
-    // Maneja la respuesta según tus necesidades
-    if (response.status === 201) {
-      registrationMessage.value = 'Registro exitoso';
-      // Puedes redirigir a otra página o realizar alguna acción adicional aquí
-    } else {
-      registrationMessage.value = 'Error en el registro';
+        if (response.status === 201) {
+          this.registrationMessage = 'Registro exitoso';
+          
+        } else {
+          this.registrationMessage = 'Error en el registro';
+        }
+      } catch (error) {
+        console.error('Error durante el registro:', error);
+        this.registrationMessage = 'Error en el registro';
+      }
     }
-  } catch (error) {
-    console.error('Error durante el registro:', error);
-    registrationMessage.value = 'Error en el registro';
   }
 };
 </script>
-
-<style scoped>
-/* Estilos según tus necesidades */
-</style>

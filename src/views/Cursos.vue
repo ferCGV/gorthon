@@ -4,8 +4,8 @@
       <Navbar></Navbar>
       <div class="contenido">
         <h1>Nuestro canal</h1>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias repellendus ipsum fugiat.</p>
-        <button  @click="flashMenu">Ver videos</button>
+        <p>Creamos un canal de youtube para aprender python desde cero</p>
+        <button  @click="flashMenu">Presiona para ver el menu</button>
       </div>
     </div>
     <div :class="['menu', { flash: isFlashing }]">
@@ -95,6 +95,7 @@ const flashMenu = () => {
 }
 
 .contenido {
+  
   margin-left: 250px;
   text-align: center;
 }
@@ -234,6 +235,19 @@ h2 {
 }
 
 button{
-  background-color: rgba(102, 102, 102, 0.687)
-}
+  background-color: rgba(102, 102, 102, 0.687);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: background-color 0.3s ease;
+    }
+
+
+
 </style>
