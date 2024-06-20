@@ -4,7 +4,7 @@
 <div id="encabezado">
   <Navbar></Navbar>
   <h1 id="Titulo">Gorthon</h1>
-  <h4>Lorem ipsum dolor sit amet. </h4>
+  <h4>Hecho con Vuejs y FastApi </h4>
 </div>
 
 
@@ -36,9 +36,7 @@ parrafo :"Nuestro recorrido por la programacion. Desde diagramas de flujo hasta 
 imagen : "imgjardin",
 parrafo : "Te invitamos a dejar  un comentario sobre nuestra primera pagina"},
 
-{ruta:"nodefinida",
-imagen : "imgpro1",
-parrafo : "Este apartado esta en proceso"}]
+]
 
 </script>
 
@@ -79,7 +77,7 @@ color: black
 .body{
 color: rgb(255, 250, 250);
 display: grid;
-grid-template-columns: repeat(3, 1fr);
+grid-template-columns: repeat(2, 1fr);
 grid-template-rows: 350px 1fr 8fr ;
 background-color: rgb(244, 239, 239);
 height: 100vh;

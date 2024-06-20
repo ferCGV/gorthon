@@ -5,7 +5,7 @@
     <nav>
         <ul id="Lista" class="">
             <li><a href="about.html" class="active">Sobre Nosotros</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="https://github.com/ferCGV/gorthon">Repositorio</a></li>
             <li><RouterLink to="/login">Registrate</RouterLink></li>
         </ul>
     </nav>

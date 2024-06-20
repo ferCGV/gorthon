@@ -70,7 +70,7 @@
   .contenedor{
     display: flex;
     flex-direction: column;
-    background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../Fotos/fondocomentarios.jpg);
+    background-color: rgb(107, 106, 106);
     height: 100vh
 
   }

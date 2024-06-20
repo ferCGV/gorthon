@@ -1,16 +1,27 @@
-import { fileURLToPath, URL } from 'node:url'
+import { fileURLToPath, URL } from 'node:url';
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
 
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+// Obtener el path del directorio actual
+const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': `${__dirname}/src`
     }
-  }
-})
+  },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://cdi-web-backend.onrender.com',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
+});
