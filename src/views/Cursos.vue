@@ -5,7 +5,7 @@
       <div class="contenido">
         <h1>Nuestro canal</h1>
         <p>Creamos un canal de youtube para aprender python desde cero</p>
-        <button  @click="flashMenu">Presiona para ver el menu</button>
+        <button  @click="flashMenu">menu</button>
       </div>
     </div>
     <div :class="['menu', { flash: isFlashing }]">
@@ -20,8 +20,8 @@
             </ul>
             <transition name="fade">
               <ul v-show="isSubMenuVisible.menu1">
-                <li>Inicio</li>
-                <li>Variables</li>
+                <li><a target="_blank" href="https://youtu.be/TQ0FnvV3P14?si=aUBolOYpV947mgQ-">Variables</a></li>
+                <li><a target="_blank" href="https://youtu.be/vPQZPbiYKL8?si=O9YhJhTkLyHOBldL">Operadores</a></li>
               </ul>
             </transition>
           </li>
@@ -31,19 +31,19 @@
             </ul>
             <transition name="fade">
               <ul v-show="isSubMenuVisible.menu2">
-                <li>Operadores</li>
-                <li>Condicionales</li>
+                <li><a target="_blank" href="https://youtu.be/_TyUwFT1VBs?si=u4XqoS8c_vsvPRsM">Condicionales</a></li>
+                <li><a target="_blank" href="https://youtu.be/T4GAmAhFw_w?si=X9z57Y2sAu1ox4uz">Bucles</a></li>
               </ul>
             </transition>
           </li>
           <li>
             <ul class="sub-menu" @click="toggleSubMenu('menu3')">
-              <li>POO</li>
+              <li>Avanzado</li>
             </ul>
             <transition name="fade">
               <ul v-show="isSubMenuVisible.menu3">
-                <li>Bucles</li>
-                <li>Listas</li>
+                <li><a target="_blank" href="https://youtu.be/etYmikjXRvA?si=mRG6RSrypv7yiNuW">Listas y diccionarios</a></li>
+                <li><a target="_blank" href="https://youtu.be/ivQuSD9pxpM?si=EJHieQ4YcZRMoMwZ">Clases y funciones</a></li>
               </ul>
             </transition>
           </li>
@@ -78,7 +78,7 @@ const flashMenu = () => {
   isFlashing.value = true;
   setTimeout(() => {
     isFlashing.value = false;
-  }, 1000); // Cambia el tiempo según lo necesites
+  }, 1000); 
 };
 </script>
 
@@ -158,7 +158,7 @@ li:hover {
   padding: 5px;
 }
 
-/* Transiciones */
+
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.3s ease;
@@ -224,9 +224,9 @@ h2 {
   margin-left: 400px;
 }
 
-/* Clases para el parpadeo */
+
 .menu.flash {
-  animation: flash-bg 0.2s 5; /* Cambia el número para más o menos parpadeos */
+  animation: flash-bg 0.2s 5; 
 }
 
 @keyframes flash-bg {
@@ -248,6 +248,11 @@ button{
       transition: background-color 0.3s ease;
     }
 
+    button:hover{
+      background-color: #dedede;
+      color: rgb(52, 52, 52);
+      transition: 1s;
+    }
 
 
 </style>

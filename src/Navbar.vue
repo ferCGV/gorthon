@@ -4,9 +4,9 @@
     <h1 ><RouterLink  id="logo" to="/">Home</RouterLink></h1>
     <nav>
         <ul id="Lista" class="">
-            <li><a href="about.html" class="active">Sobre Nosotros</a></li>
-            <li><a href="https://github.com/ferCGV/gorthon">Repositorio</a></li>
-            <li><RouterLink to="/login">Registrate</RouterLink></li>
+            <li><RouterLink to="/login">Iniciar sesion</RouterLink></li>
+            <li><a target="_blank" href="https://github.com/ferCGV/gorthon">Repositorio</a></li>
+            <li><RouterLink to="/registrarse">Registrate</RouterLink></li>
         </ul>
     </nav>
 </header>

@@ -4,7 +4,7 @@
 <div id="encabezado">
   <Navbar></Navbar>
   <h1 id="Titulo">Gorthon</h1>
-  <h4>Hecho con Vuejs y FastApi </h4>
+  <h4>Hecho con Vue js y FastApi </h4>
 </div>
 
 
@@ -51,7 +51,7 @@ parrafo : "Te invitamos a dejar  un comentario sobre nuestra primera pagina"},
     font-weight: bold;
   }
   
-/* Editando el encabezado*/
+
 
 
 

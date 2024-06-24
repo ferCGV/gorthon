@@ -32,16 +32,16 @@
   <script setup>
   import { ref } from 'vue';
   import Navbar from '@/Navbar.vue';
-  // Lista de comentarios (puede ser reemplazada con datos de una API)
+  
   const comments = ref([]);
   
-  // Nuevo comentario a añadir
+
   const newComment = ref({
     nombre: '',
     comentario: ''
   });
   
-  // Función para enviar el comentario
+
   const submitComment = () => {
     if (newComment.value.nombre && newComment.value.comentario) {
       comments.value.push({ 
