@@ -31,7 +31,8 @@ export default {
         username: '',
         password: ''
       },
-      loginMessage: ''
+      loginMessage: '',
+      accessToken: ''
     };
   },
   methods: {
@@ -55,8 +56,14 @@ export default {
         console.log('Response:', response.data);
 
         if (response.status === 200) {
-          this.loginMessage = 'Se inicio sesion';
-          // Manejar el token de acceso 
+          this.loginMessage = 'Se inició sesión';
+          this.accessToken = response.data.access_token;
+          localStorage.setItem('accessToken', this.accessToken);
+          
+          
+          setTimeout(() => {
+            this.$router.push('/');
+          }, 1500); 
         } else {
           this.loginMessage = 'Error en el inicio de sesión';
         }
@@ -70,13 +77,10 @@ export default {
 </script>
 
 <style scoped>
-
-
-
-.contenedor{
-height:100vh;
-width: 100vw;
-background-image :linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url(/Fotos/copia.jpg);
+.contenedor {
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url(/Fotos/copia.jpg);
 }
 
 body {
@@ -93,13 +97,13 @@ body {
   max-width: 400px;
   width: 100%;
   text-align: center;
-  margin: 100px auto; 
+  margin: 100px auto;
 }
 
 .login-form h2 {
   margin-bottom: 20px;
   font-size: 24px;
-  color: #ffffff
+  color: #ffffff;
 }
 
 .login-form label {
@@ -142,21 +146,20 @@ body {
   color: #d9534f;
 }
 
-#header{
+#header {
   background-color: transparent;
 }
 
-input:hover{
-  transition: .8;
-  background-color: rgb(136, 136, 136)
+input:hover {
+  transition: .8s;
+  background-color: rgb(136, 136, 136);
 }
 
-input:focus-visible{
-  border: transparent
-
+input:focus-visible {
+  border: transparent;
 }
 
-input{
+input {
   color: white;
 }
 </style>
